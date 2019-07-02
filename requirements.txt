@@ -1,2 +1,3 @@
 flask==1.0.2
 pytest
+pymongo==3.7.2
