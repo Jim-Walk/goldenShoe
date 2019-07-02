@@ -16,6 +16,7 @@ deploy:
     secret_access_key:
         secure: GdMviIV7u5FXCoB8ylVwa2tE0QdUbQfTedc/qjPQTUTlQv5vTzvqCF9RJMeYUtA62sk4Tyq/ACc31zamEUVtI3OsNA8yO0CVFPbt/adGE1uRS2Nd7IR/JPBzd8hZ1w/8D7WHPaNnyNCqAxSt07FUwsOckkUBIMX/4M8FkqfPRY181BLN/EiqTckVFhV8BKT1JVujn7JHrWPwP24wkB5/kxfuaZWPkRAqkSRiSFsXqtZrQ0dQUud/PdxgLHFCtXjUDGoLIOdq+z9wl3Ks+usg3kAnyTjHHAcgp4gFlbpDIo+KfYBiIxFslW1HBC895eTV25rOVUP8RfdZoGMjWPcl0CQ4GvvieP8Ek23xhcDUqoJ/ekj3YvMhvV3jEC2F0UvEHlQXzvk+QHl05QoBJCPO0wxiJ1xLkxr3WGN4nOdKmNDU7jQjiM531Lf33x/7785I3bVDAQCTTS9TkKmj77AU3F38Rxh9T7Ltxhbc6D6J34BwSwR+I9iNgpTK73q5jmExQD0CUbtDD0u3VKCoyVrwOM/S7LueVP7I5ixqJ7YFh6IRsZ7bgJZJfYY+BJOMHA7U+Z9/ZqZQwNu6ewMWsfa+lmXswlfvd6uq72+6gSv7Cy6YXGmW7ghAK8X5QELdfusG7XqbrslUtWrikrXpcaGodo1UmXItVSbdgeo1lb+xwjs=
     local_dir: dpl_cd_upload
+    skip_cleanup: true
     on: &2
         repo: andrewpsuedonym/goldenShoe
     bucket: small-golden-shoe-demo
