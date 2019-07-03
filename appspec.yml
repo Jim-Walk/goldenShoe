@@ -8,6 +8,6 @@ files:
 
 hooks:
     BeforeInstall:
-      - location: ./install.sh
+      - location: ./home/ec2-user/shoe/install.sh
     ApplicationStart:
-      - location: ./run.sh
+      - location: ./home/ec2-user/shoe/run.sh
