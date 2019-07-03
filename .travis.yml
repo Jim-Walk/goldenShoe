@@ -1,33 +1,33 @@
 language: python
 python: 3.6
 services:
-    - mongodb
+- mongodb
 install: pip install -r requirements.txt
-script: 
-    - ./test.sh
-    - zip -r latest *
-    - mkdir -p dpl_cd_upload
-    - mv latest.zip dpl_cd_upload/latest.zip
-
+script:
+- "./test.sh"
+- zip -r latest *
+- mkdir -p dpl_cd_upload
+- mv latest.zip dpl_cd_upload/latest.zip
 deploy:
+  matrix:
   - provider: s3
-    access_key_id: AKIAIPJC57YCIIAD5YFA
+    access_key_id: AKIAVDEUFRXDCKCIBCWP
     secret_access_key:
-        secure: GdMviIV7u5FXCoB8ylVwa2tE0QdUbQfTedc/qjPQTUTlQv5vTzvqCF9RJMeYUtA62sk4Tyq/ACc31zamEUVtI3OsNA8yO0CVFPbt/adGE1uRS2Nd7IR/JPBzd8hZ1w/8D7WHPaNnyNCqAxSt07FUwsOckkUBIMX/4M8FkqfPRY181BLN/EiqTckVFhV8BKT1JVujn7JHrWPwP24wkB5/kxfuaZWPkRAqkSRiSFsXqtZrQ0dQUud/PdxgLHFCtXjUDGoLIOdq+z9wl3Ks+usg3kAnyTjHHAcgp4gFlbpDIo+KfYBiIxFslW1HBC895eTV25rOVUP8RfdZoGMjWPcl0CQ4GvvieP8Ek23xhcDUqoJ/ekj3YvMhvV3jEC2F0UvEHlQXzvk+QHl05QoBJCPO0wxiJ1xLkxr3WGN4nOdKmNDU7jQjiM531Lf33x/7785I3bVDAQCTTS9TkKmj77AU3F38Rxh9T7Ltxhbc6D6J34BwSwR+I9iNgpTK73q5jmExQD0CUbtDD0u3VKCoyVrwOM/S7LueVP7I5ixqJ7YFh6IRsZ7bgJZJfYY+BJOMHA7U+Z9/ZqZQwNu6ewMWsfa+lmXswlfvd6uq72+6gSv7Cy6YXGmW7ghAK8X5QELdfusG7XqbrslUtWrikrXpcaGodo1UmXItVSbdgeo1lb+xwjs=
+      secure: IUxz3P6RrY3MMTUikr3VKxxdVuv8tAwPQqsvFIaT9rn460VoydiDZzj8xkSrYjyHvLiWIeJP163ZuhGcROXCf2y9VLVs/XMHc77HYjUGu4yY4W6DBKsmSDXrUmuabA06yL4/yuFdChLVAZ6HtyO6cpVNivuEa7bHmT3A1C/9l64tj70+JiHFSveOoX5iaeJb63vHM459Rh7NOE3Iqe6+8p96HpB3/jtfTjuj9QU0ndWKqqn/qDelN+HGigSGQNInoDOQkMHccEjSgaKc4fXkqhSvpGM/6SdJrwFe0qMXkyfc7wr2pxWcIeJieJfgI07HwfIEvuWvxPBev0PvK05mQC+zR0d8MQCsVYGnavgvAvlsZyrP3JxdrSZlytmHrxvBiiIdbCcrnFeuEj7o0sK08sworedwvZ+EownG6jZnxnMgaEbOcewerDpgVzSTcmSsAs6YZftHgFE+gbET8iU3yJduR4My17rXF27ZDn6szejn2Lfup8S/GsiQVwl6y3oHwz9yfgBY7+5BkJhQYcJv+CLeX0KjsmI+5hNWlHplfAu+++kEbag/R9dsXLpsCcEAbP+20/MwWV/U/hwbdbGP0xPQzN/DwN9zMBtrdTU+ZnzBSAvoSLDdtgUmzV6GuyTsSsbsKm/hwNl8PgOWK82amUNRPRVgxyrSikV6t+WULXE=
     local_dir: dpl_cd_upload
     skip_cleanup: true
-    on: &2
-        repo: andrewpsuedonym/goldenShoe
+    on: &1
+      repo: andrewpsuedonym/goldenShoe
     bucket: small-golden-shoe-demo
-    region: eu-west-2 
+    region: eu-west-2
   - provider: codedeploy
-    access_key_id: AKIAIPJC57YCIIAD5YFA
+    access_key_id: AKIAVDEUFRXDCKCIBCWP
     secret_access_key:
-        secure: GdMviIV7u5FXCoB8ylVwa2tE0QdUbQfTedc/qjPQTUTlQv5vTzvqCF9RJMeYUtA62sk4Tyq/ACc31zamEUVtI3OsNA8yO0CVFPbt/adGE1uRS2Nd7IR/JPBzd8hZ1w/8D7WHPaNnyNCqAxSt07FUwsOckkUBIMX/4M8FkqfPRY181BLN/EiqTckVFhV8BKT1JVujn7JHrWPwP24wkB5/kxfuaZWPkRAqkSRiSFsXqtZrQ0dQUud/PdxgLHFCtXjUDGoLIOdq+z9wl3Ks+usg3kAnyTjHHAcgp4gFlbpDIo+KfYBiIxFslW1HBC895eTV25rOVUP8RfdZoGMjWPcl0CQ4GvvieP8Ek23xhcDUqoJ/ekj3YvMhvV3jEC2F0UvEHlQXzvk+QHl05QoBJCPO0wxiJ1xLkxr3WGN4nOdKmNDU7jQjiM531Lf33x/7785I3bVDAQCTTS9TkKmj77AU3F38Rxh9T7Ltxhbc6D6J34BwSwR+I9iNgpTK73q5jmExQD0CUbtDD0u3VKCoyVrwOM/S7LueVP7I5ixqJ7YFh6IRsZ7bgJZJfYY+BJOMHA7U+Z9/ZqZQwNu6ewMWsfa+lmXswlfvd6uq72+6gSv7Cy6YXGmW7ghAK8X5QELdfusG7XqbrslUtWrikrXpcaGodo1UmXItVSbdgeo1lb+xwjs=
+      secure: IUxz3P6RrY3MMTUikr3VKxxdVuv8tAwPQqsvFIaT9rn460VoydiDZzj8xkSrYjyHvLiWIeJP163ZuhGcROXCf2y9VLVs/XMHc77HYjUGu4yY4W6DBKsmSDXrUmuabA06yL4/yuFdChLVAZ6HtyO6cpVNivuEa7bHmT3A1C/9l64tj70+JiHFSveOoX5iaeJb63vHM459Rh7NOE3Iqe6+8p96HpB3/jtfTjuj9QU0ndWKqqn/qDelN+HGigSGQNInoDOQkMHccEjSgaKc4fXkqhSvpGM/6SdJrwFe0qMXkyfc7wr2pxWcIeJieJfgI07HwfIEvuWvxPBev0PvK05mQC+zR0d8MQCsVYGnavgvAvlsZyrP3JxdrSZlytmHrxvBiiIdbCcrnFeuEj7o0sK08sworedwvZ+EownG6jZnxnMgaEbOcewerDpgVzSTcmSsAs6YZftHgFE+gbET8iU3yJduR4My17rXF27ZDn6szejn2Lfup8S/GsiQVwl6y3oHwz9yfgBY7+5BkJhQYcJv+CLeX0KjsmI+5hNWlHplfAu+++kEbag/R9dsXLpsCcEAbP+20/MwWV/U/hwbdbGP0xPQzN/DwN9zMBtrdTU+ZnzBSAvoSLDdtgUmzV6GuyTsSsbsKm/hwNl8PgOWK82amUNRPRVgxyrSikV6t+WULXE=
     bucket: small-golden-shoe-demo
     key: latest.zip
     bundle_type: zip
     application: GoldenShoe
     deployment_group: GoldenShoe
     region: eu-west-2a
-    on: *2
+    on: *1
