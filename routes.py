@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from flask import Flask, render_template
 app = Flask(__name__)
 from pymongo import MongoClient
@@ -17,3 +19,5 @@ def shoe(SHOE_ID):
     shoe = shoes_c.find_one({'ID':SHOE_ID})
     return render_template('shoe.html', shoe=shoe)
 
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")
