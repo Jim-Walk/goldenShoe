@@ -30,3 +30,4 @@ deploy:
     deployment_group: GoldenShoe
     region: eu-west-2
     on: *1
+    wait_until_deployed: true
