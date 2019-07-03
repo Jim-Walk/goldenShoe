@@ -30,9 +30,9 @@
         {% for shoe in all_shoes %}
       <div class="column">
         <img class="thumbnail" src="https://placehold.it/300x400">
-        <h5>{{shoe['Name']}}</h5>
-        <p>5 {{shoe.Price}}</p>
-        <a href="#" class="button expanded">Buy</a>
+        <h5>{{shoe.Name}}</h5>
+        <p>{{shoe.Price}}</p>
+        <a href="shoe/{{shoe.ID}}" class="button expanded">Buy</a>
       </div>
         {% endfor %}
     </div>

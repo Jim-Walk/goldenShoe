@@ -5,3 +5,9 @@ os: linux
 files:
   - source: ./
     destination: /home/ec2-user/shoe
+
+hooks:
+    BeforeInstall:
+      - location: ./install.sh
+    ApplicationStart:
+      - location: ./run.sh

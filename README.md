@@ -2,6 +2,9 @@
 
 # goldenShoe
 Demo website for Job Interview
+
+[Hosted on AWS](http://ec2-35-176-12-5.eu-west-2.compute.amazonaws.com:5000/)
+
 Key features:
 - MongoDB and Flask
 - Deployment pipeline set up to enable CI and TDD
