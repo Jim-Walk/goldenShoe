@@ -8,7 +8,7 @@ client = MongoClient()
 shoes_c = client.GoldenShoe.shoes
 
 @app.route('/')
-def hello_world():
+def index():
     all_shoes = []
     for shoe in shoes_c.find():
         all_shoes += [shoe]
