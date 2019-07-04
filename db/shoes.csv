@@ -1,5 +1,5 @@
 ID,Name,Price,Stock,On Sale,img1,img2,img3,Gender
-1,Becken Cap,£55.00,3,TRUE,imgs/becken_cap1.jpeg,imgs/becken_cap2.jpeg,imgs/becken_cap3.jpeg,M
+1,Becken Cap,£55.00,3,TRUE,img/becken_cap1.jpeg,img/becken_cap2.jpeg,img/becken_cap3.jpeg,M
 2,Cotrell Edge,£59.00,1,FALSE,cotrell_edge1.jpeg,cotrell_edge2.jpeg,cotrell_edge3.jpeg,M
 3,foo,£2.00,0,FALSE,,,,M
 4,bar,£123.00,2,FALSE,,,,M
