@@ -1,42 +1,40 @@
 {% extends "base.html" %}
 {% block title %} Golden Shoe {% endblock %}
 {% block content %}
-
-    <div class="row columns">
-      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-        <ul class="orbit-container">
-          <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
-          <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
-          <li class="orbit-slide is-active">
-              <img src="{{ url_for('static', filename=shoe.img1) }}">
-          </li>
-          <li class="orbit-slide">
-            <img src="{{ url_for('static', filename=shoe.img2) }}">
-          </li>
-          <li class="orbit-slide">
-            <img src="{{ url_for('static', filename=shoe.img3) }}">
-          </li>
-          <li class="orbit-slide">
-            <img src="https://placehold.it/1200x450">
-          </li>
-        </ul>
-      </div>
-    </div>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='slick/slick.css') }}"/>
+<link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='slick/slick-theme.css') }}"/>
+<div class="s_carousel">
+    <div><img style="clip: rect(200px,600px,200px,0px);" src="{{ url_for('static', filename=shoe.img1) }}"></img></div>
+    <div><img style="clip: rect(200px,600px,200px,0px);" src="{{ url_for('static', filename=shoe.img2) }}"></img></div>
+    <div><img style="clip: rect(200px,600px,200px,0px);" src="{{ url_for('static', filename=shoe.img3) }}"></img></div>
+</div>
 
     <div class="row column text-center">
         <h1>{{shoe.Name}}</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+        <p class="lead">{{shoe.Price}}</p>
     </div>
 
     <hr>
 
     <div class="row">
       <div class="medium-6 large-3 columns">
-        <h3>Lorum</h3>
+        <h3>
+        {% if shoe['On Sale'] %}
+        On Sale
+        {% else %}
+        Lorum
+        {% endif %}
+        </h3>
         <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
       </div>
       <div class="medium-6 large-3 columns">
-        <h3>Ipsum</h3>
+        <h3>
+        {% if not shoe.Stock %}
+        Not in stock
+        {% else %}
+        Ipsum
+        {% endif %}
+        </h3>
         <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
       </div>
       <div class="medium-6 large-3 columns">
