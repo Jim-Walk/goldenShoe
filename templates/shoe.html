@@ -32,7 +32,7 @@
         {% if not shoe.Stock %}
         Not in stock
         {% else %}
-        Ipsum
+        <a href="/buy/{{shoe.ID}}" class="button">Buy shoe</a>
         {% endif %}
         </h3>
         <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
